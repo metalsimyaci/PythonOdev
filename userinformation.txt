@@ -1,3 +1,1 @@
-Adý:hakan,Soyadý:ural,Yaþý:22
-Adý:ju,Soyadý:hu,Yaþý:2
-Adý:h,Soyadý:2,Yaþý:3
+Ad:ÅŸeydi,Soyad:ÅŸeyoldu,Yas:3

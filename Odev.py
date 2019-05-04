@@ -1,18 +1,29 @@
+import codecs
+#dosya işlemlerinde kullanılacak dosya değişkeni
+FILENAME="userinformation.txt"
+
+# Dosya yazma fonksiyonu
+# content olarak belitilen içeriği dosyaya yazar.
+# dosya mevcut dizine ekleme modu (yoksa oluşturur, varsa üzerine ekler) ile oluşturulur
 def writeFile(content):
-    dosya = open("userinformation.txt","a")
-    dosya.writelines(content)
-    dosya.close()
+    with codecs.open(FILENAME,"a",'utf-8') as dosya:
+        dosya.writelines(content)
+#Kullanıcı bilgilerini kullanıcıdan alarak dosyaya yazar
 def writeUserInformation():    
     name = input("Adınız giriniz:")
     surname = input("Soyadınızı giriniz:")
     ageString = input("Yaşınızı giriniz:")
-    writeFile("Adı:"+name+",Soyadı:"+surname+",Yaşı:"+ageString+"\n")
+    writeFile("Ad:"+name+",Soyad:"+surname+",Yas:"+ageString+"\n")
     print("Kullanıcı bilgileri başarı ile alındı")
-def ReadUserIformation():
+
+#Dosyadan kullanıcı bilgilerini okuyarak ekrana yazar
+def readUserIformation():
     print("\n\n**** Kullanıcı Bilgileri ***")
-    with open("userinformation.txt", "r") as dosya:
+    with codecs.open(FILENAME, "r",'utf-8') as dosya:
         print(dosya.read())
-def Menu():
+        
+#Kullanıcı işlem menüsünü görüntüler
+def menu():
     ans=True
     while ans:
         print("""
@@ -28,9 +39,9 @@ def Menu():
         if ans =="1":
             writeUserInformation()
         elif ans =="2":
-            ReadUserIformation()
+            readUserIformation()
         elif ans =="3":
             exit()
         else:
             print("\n ** Lütfen geçerli bir seçim yağınız **\n")
-Menu()
+menu()
